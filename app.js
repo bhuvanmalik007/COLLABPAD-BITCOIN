@@ -10,11 +10,15 @@ var app = express();
 var server = require('http').createServer(app);
 var io=require('socket.io').listen(server);
 server.listen(process.env.PORT || 3000);
+var BlockIo = require('block_io');
+var version = 2;
+var block_io = new BlockIo('91cb-fdce-44af-0c50', 'wjCuwb4G$', version);
+
 
 
 
 var connections=[];
-var records={};
+
 
 
 
@@ -41,6 +45,13 @@ app.use(function(req, res, next) {
 app.get('/',function(req,res){
     res.sendFile(path.join(__dirname,'/public/index.html'));
 });
+
+app.get('/donate',function(req,res){
+      block_io.get_balance({}, console.log);
+       res.send("donate");
+});
+
+
 
 
 io.sockets.on('connection', function(socket){
