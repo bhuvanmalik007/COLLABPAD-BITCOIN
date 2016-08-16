@@ -42,9 +42,17 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.get('/donate',function(req,res){
+app.get('/donate/:email/:name',function(req,res){
+      console.log(req.params.email);
       block_io.get_balance({}, console.log);
-      res.send("donate");
+      block_io.get_new_address({'label': req.params.name}, function (error, data) {
+        if (error) 
+        return console.log("Error occured:", error.message);
+        console.log(data);
+        res.json(data);
+  
+});
+      
 });
 
 app.get('/', app.use(gzippo.staticGzip("" + __dirname + "/public"))); 
