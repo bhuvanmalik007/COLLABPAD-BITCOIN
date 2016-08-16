@@ -6,6 +6,8 @@ el: 'body',
 
     email:'',
     name:'',
+    address:'',
+    ifAddress:false
   },
 
   methods:{
@@ -28,6 +30,9 @@ el: 'body',
                   //response.headers('expires');
   
                   // set data on vm
+                  
+                  this.address=response.data.data.address;
+                  this.ifAddress=true;
                   console.log(response.data.data.address);
                  
   
