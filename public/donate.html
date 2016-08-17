@@ -160,37 +160,39 @@
     </div>
     <br>
     
+    
+ 
 <div class="row text-center">
-    <div class="panel col-lg-6 col-lg-6-offset-2  panel-primary text-center"> 
-        <div class="panel-heading">Enter details to obtain wallet address</div>
-        
-        <div class="panel-body">
-            <div class="input-group">
-                  <span class="input-group-addon" id="basic-addon1" >@</span>
-                  <input type="text" class="form-control" placeholder="Email" v-model='email' aria-describedby="basic-addon1">
-                 
+    <div class="col-lg-6">
+        <div class="panel panel-primary text-center"> 
+            <div class="panel-heading">Enter details to obtain wallet address</div>
+            <div class="panel-body">
+                <form>  
+                    <div class="input-group">
+                          <span class="input-group-addon" id="basic-addon1" >@</span>
+                          <input type="email" class="form-control" placeholder="Email" v-model='email' aria-describedby="basic-addon1">
+                         
+                    </div>
+                    <br>
+                     <div class="input-group">
+                             <span class="input-group-addon" id="basic-addon1">Name</span>
+                              <input type="text" class="form-control" placeholder="Enter your name" v-model='name' aria-describedby="basic-addon1">
+                     </div><br>
+                     <button type="submit" class="btn btn-primary" v-on:click="donatesend">Submit</button>
+                 </form>
             </div>
-            <br>
-             <div class="input-group">
-                     <span class="input-group-addon" id="basic-addon1">Name</span>
-                      <input type="text" class="form-control" placeholder="Enter your name" v-model='name' aria-describedby="basic-addon1">
-             </div><br>
-             <button type="button" class="btn btn-primary" v-on:click="donatesend">Submit</button>
-        </div>
-    </div>  
+        </div>  
+    </div>
     
     <div v-if="ifAddress">
         <img src="https://api.qrserver.com/v1/create-qr-code/?data={{address}}&amp;size=200x200" alt="" title="" />
         <p class="walletaddress">{{address}}</p>
     </div>
     <div v-else>
-        <img src="https://api.qrserver.com/v1/create-qr-code/?data=example&amp;size=200x200" alt="" title="" />
+        <!--<img src="https://api.qrserver.com/v1/create-qr-code/?data=example&amp;size=200x200" alt="" title="" />-->
         <p class="walletaddress">Wallet address will appear here</p>
     </div>
     
-    
-    
-
 </div> 
 
    
