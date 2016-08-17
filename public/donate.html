@@ -84,6 +84,11 @@
     color: #ffffff !important;
 }
 
+    .walletaddress{
+        font-size: 20px;
+        font-weight: bold;
+    }
+
 
 
     </style>
@@ -175,9 +180,13 @@
     </div>  
     
     <div v-if="ifAddress">
-   <img src="https://api.qrserver.com/v1/create-qr-code/?data={{address}}&amp;size=300x300" alt="" title="" />
-    <p>{{address}}</p>
-  </div>
+        <img src="https://api.qrserver.com/v1/create-qr-code/?data={{address}}&amp;size=200x200" alt="" title="" />
+        <p class="walletaddress">{{address}}</p>
+    </div>
+    <div v-else>
+        <img src="https://api.qrserver.com/v1/create-qr-code/?data=example&amp;size=200x200" alt="" title="" />
+        <p class="walletaddress">Your address will appear here</p>
+    </div>
     
     
     
